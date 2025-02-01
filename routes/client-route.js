@@ -11,9 +11,9 @@ const {
 
 
 
-router.get('/medecin', getClient)
+router.get('/client', getClient)
 
-router.get('/medecin/:id', oneClient)
+router.get('/client/:id', oneClient)
 
 router.post('/add', addClient)
 

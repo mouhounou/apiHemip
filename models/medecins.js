@@ -19,11 +19,9 @@ const Medecin = sequelize.define('medecin', {
     telephone: {
         type: DataTypes.STRING, 
         allowNull: false,
-        unique: true,
     },
     email: {
         type: DataTypes.STRING,
-        unique: true,
         allowNull: false,
     },
     specialiste_id: {
