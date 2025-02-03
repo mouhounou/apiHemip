@@ -19,6 +19,7 @@ const getClient = async(req, res) =>{
     }
 }
 
+
 const oneClient = async(req, res) =>{
     try{
         const tofound = req.params.id
@@ -41,7 +42,7 @@ const oneClient = async(req, res) =>{
         console.log('====================================');
         res.status(500).json({
             success: false,
-            message: 'Error retrieving client',
+            message: 'Erreur lors de la recuperation du  client',
             error: error
         });
     }

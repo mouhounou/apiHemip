@@ -15,7 +15,7 @@ router.get('/specialiste', getSpecialiste)
 
 router.get('/specialiste/:id', getOneSpecialiste)
 
-router.post('/add/:id', addSpecialiste)
+router.post('/add/', addSpecialiste)
 
 router.put('/update/:id', updateSpecialiste)
 
