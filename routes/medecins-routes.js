@@ -14,7 +14,7 @@ router.get('/medecin', getMedecin)
 
 router.get('/medecin/:id', getOneMedecin)
 
-router.post('/new-medecin', addMedecin)
+router.post('/newmedecin', addMedecin)
 
 router.put('/update/:id', updateMedecin)
 

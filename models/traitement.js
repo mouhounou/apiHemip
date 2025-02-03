@@ -24,7 +24,7 @@ const traitement = sequelize.define('traitement', {
         type: DataTypes.INTEGER,
         allowNull: false,  
         references: {
-            model: Consultation, 
+            model: "consultations", 
             key: 'id',
         },
         onDelete: 'CASCADE',

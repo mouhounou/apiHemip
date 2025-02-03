@@ -22,7 +22,7 @@ const getOneSpecialiste = async (req, res) =>{
     try{
         const tofound = await specialisteModel.findByPk(req.params.id)
         if(!tofound){
-            res.status(404).json({
+            return res.status(404).json({
                 success: false,
                 message: "specialistes not found"
             })

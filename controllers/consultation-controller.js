@@ -1,11 +1,22 @@
 const consultationModel = require('../models/consultations')
-
-
+const Client = require('../models/client')
+const Medecin = require('../models/medecins')
 
 const getConsultation = async (req, res) => {
     
     try{
-        const consultation = await consultationModel.findAll();
+        const consultation = await consultationModel.findAll({
+            include: [
+                    {
+                        model: Client,  
+                        required: true  
+                    },
+                    {
+                        model: Medecin,  
+                        required: true
+                    }
+            ]
+        });
         
         if(!consultation){
             return res.status(404).json({
@@ -29,14 +40,26 @@ const getConsultation = async (req, res) => {
     }
 }
 
+
 const getOneConsultation = async (req, res) => {
     try{
 
         const tofound = req.params.id
-        const checkConsultation = await consultationModel.findByPk(tofound)
+        const checkConsultation = await consultationModel.findByPk(tofound,{
+            include: [
+                {
+                    model: Client,  
+                    required: true  
+                },
+                {
+                    model: Medecin,  
+                    required: true
+                }
+        ]
+        })
 
         if(!checkConsultation){
-            res.status(404).json({
+            return res.status(404).json({
                 success: false,
                 message: 'consultation not found'
             });
@@ -63,7 +86,7 @@ const addConsultation = async (req, res) => {
     try{
         const newConsultation = await consultationModel.create(req.body)
         if(!newConsultation){
-            res.status(500).json({
+            return res.status(500).json({
                 success: false,
                 message: 'Erreur lors de l enregistrement  de la consultation',
             });
@@ -91,8 +114,7 @@ const updateConsultation = async (req, res) => {}
 const deleteConsultation = async (req, res) => {
     try{
         const todelete = await consultationModel.findByPk(req.params.id, {
-            include: medecins,
-            include: clients
+            include: ["medecins","client"]
         })
 
         if(!todelete){

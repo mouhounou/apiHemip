@@ -27,7 +27,7 @@ const Medecin = sequelize.define('medecin', {
     specialiste_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: Specialiste, 
+            model: "specialistes", 
             key: 'id',
         },
         onDelete: 'CASCADE',

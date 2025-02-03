@@ -26,8 +26,9 @@ const Consultation = sequelize.define('Consultation', {
         allowNull: false,
     },
     date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATE ,
         allowNull: false,
+        defaultValue: DataTypes.NOW
     },
     motif: {
         type: DataTypes.STRING,

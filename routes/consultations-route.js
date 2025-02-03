@@ -14,7 +14,7 @@ router.get('/consultation', getConsultation)
 
 router.get('/consultation/:id', getOneConsultation)
 
-router.post('/add-consultation', addConsultation)
+router.post('/newconsultation', addConsultation)
 
 router.put('/update-consultation', updateConsultation)
 
